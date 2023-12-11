@@ -1,7 +1,7 @@
 //import './Navbar.scss'
 import logo from '../../assets/logo.svg'
 import Navlink from './Navlink'
-
+import Boton from '../Boton/Boton'
 
 
 const Navbar = ()=> {
@@ -15,6 +15,9 @@ const Navbar = ()=> {
             <Navlink  href={"#"} text={"Promociones"}/> 
             <Navlink  href={"#"} text={"Nosotros"}/> 
             <Navlink  href={"#"} text={"Informacion"}/>  
+            <Boton onClick={()=> alert("Se agrego pedido al carrito")}>
+    Agregar al Carrito <img src='/src/assets/carrito.svg'/>
+    </Boton>
           </nav>
         </div>
     </header>
