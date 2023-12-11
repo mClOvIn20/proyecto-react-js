@@ -6,7 +6,7 @@ const Itemlistcontainer =({greeting}) => {
     <section className="list_container">
         <h2 className="list_title">Catalogo</h2>
         <hr />
-        <div>{greeting}</div>
+        <p>{greeting}</p>
     </section>
   )
 }
