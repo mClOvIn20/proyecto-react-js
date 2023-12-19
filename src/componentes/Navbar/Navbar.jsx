@@ -15,9 +15,9 @@ const Navbar = ()=> {
             <Navlink  href={"#"} text={"Promociones"}/> 
             <Navlink  href={"#"} text={"Nosotros"}/> 
             <Navlink  href={"#"} text={"Informacion"}/>  
-            <Boton onClick={()=> alert("Se agrego pedido al carrito")}>
-    Agregar al Carrito <img src='/src/assets/carrito.svg'/>
-    </Boton>
+            <Boton className='flex-auto' onClick={()=> alert("Se agrego pedido al carrito")}>
+            Agregar al Carrito <img src='/src/assets/carrito.svg'/>
+            </Boton>
           </nav>
         </div>
     </header>

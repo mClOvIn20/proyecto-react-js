@@ -1,13 +1,33 @@
-//import './Itemlistcontainer.scss'
+import { useState } from "react"
+import { useEffect } from "react"
+import {pedirDatos} from "../../utiliades/utilidades"
+import Itemlist from "../Itemlist/Itemlist"
+
+const Itemlistcontainer =() => {
+  const [productos, setProductos]= useState([])
+  const [loading, setLoading] = useState(true)
 
 
-const Itemlistcontainer =({greeting}) => {
+  useEffect(() => {
+    setLoading(true)
+
+    pedirDatos()
+    .then((data) => {
+      setProductos (data)
+      setLoading(false)
+    }
+    )
+  }, [])
+  
+
   return (
-    <section className="list_container">
-        <h2 className="list_title">Catalogo</h2>
-        <hr />
-        <p>{greeting}</p>
-    </section>
+    <>
+    {
+      loading
+      ?<h2 className="text-center text-4xl mt-6">Cargando...</h2>
+      : <Itemlist productos={productos}/>
+    }
+        </>
   )
 }
 <Itemlistcontainer greeting= "buenas a todos"/> 
