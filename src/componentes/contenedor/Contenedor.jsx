@@ -5,6 +5,7 @@ const Contenedor =({texto, titulo} )=> {
     <div className='container m-auto py-4'>
       <h2 className="text-4x1">{titulo}</h2>
         <p>{texto}</p>
+        <p>buenas a todos</p>
 
     </div>
   )
