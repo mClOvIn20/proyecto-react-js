@@ -10,19 +10,19 @@ const links =[
   },
   {
     label: "Productos",
-    href: "/productos/tvs",
+    href: "/productos",
   },
   {
     label: "Promociones",
-    href: "/promociones/aires",
+    href: "/promociones",
   },
   {
     label: "Nosotros",
-    href: "/nosotros/heladeras",
+    href: "/nosotros",
   },
   {
     label: "Informacion",
-    href: "/informacion/muebles",
+    href: "/informacion",
   },
 ]
 const Navbar = ()=> {
