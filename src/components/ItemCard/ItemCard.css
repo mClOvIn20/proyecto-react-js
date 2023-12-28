@@ -1,0 +1,22 @@
+.contenedor-card {
+    display: flex;
+    padding: .625rem;
+    margin: .625rem;
+    box-shadow: 3px 3px 5px gray;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.portada {
+    display: flex;
+    width: 320px;
+    height: 200px;
+    
+}

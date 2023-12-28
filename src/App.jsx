@@ -1,36 +1,48 @@
+
 import './App.css'
-import Navbar from './componentes/Navbar/Navbar'
-import Itemlistcontainer from './componentes/Itemlistcontainer/Itemlistcontainer'
-import Contenedor from './componentes/contenedor/Contenedor'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer'
-import ItemDetail from './componentes/ItemDetail/ItemDetail'
-import Informacion from './componentes/Informacion/Informacion'
-import Nosotros from './componentes/Nosotros/Nosotros'
-import Promociones from './componentes/Promociones/Promociones'
+import './components/ItemListConteiner/ItemListConteiner'
+import { NavBar } from './components/navBar/NavBar'
+import { Footer } from './components/footer/Footer'
+import { ItemListConteiner } from './components/ItemListConteiner/ItemListConteiner'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { NotFound } from './components/not-found/NotFound'
+import { Inicio } from './components/Inicio/Inicio'
+import { ItemDetailConteiner } from './components/ItemDetailConteiner/ItemDetailConteiner'
+import { CartProvider } from './Context/CartContext'
+import { CartView } from './components/CartView/CartView'
+import { UserProvider } from './Context/userContext'
+
 
 function App() {
 
-  return (
-    <BrowserRouter>
-  
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Itemlistcontainer/>}/>
-      <Route path='/productos/:categoryId' element={<Itemlistcontainer/>}/>
-      <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-      <Route path='/informacion' element={<Informacion/>}/>
-      <Route path='/nosotros' element={<Nosotros/>} />
-      <Route path='promociones' element={<Promociones/>} />
-    
-      <Route path='/not/found' element={<h2>Not found</h2>}/>
-      <Route path='*' element= {<Navigate to={"/not-found"}/>}/>
-    </Routes>
 
-    <Itemlistcontainer greeting= "buenas a todos"/> 
-    <Contenedor titulo={"Lavigne"} texto={"soy francisco"} />
-    
-    </BrowserRouter>
+  return (
+
+    <div className='px-3'>
+
+      <UserProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+
+              <Route path="/" element={<Inicio />} />
+              <Route path="/menu" element={<ItemListConteiner />} />
+              <Route path="/menu/:categoryId" element={<ItemListConteiner />} />
+              <Route path="/item/:itemId" element={<ItemDetailConteiner />} />
+              <Route path="/cart" element={<CartView />} />
+              <Route path="*" element={<NotFound />} />
+
+            </Routes>
+            <Footer />
+
+
+
+          </BrowserRouter>
+        </CartProvider>
+      </UserProvider>
+    </div>
   )
 }
+
 export default App

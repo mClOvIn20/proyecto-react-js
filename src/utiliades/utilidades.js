@@ -4,6 +4,8 @@ export const pedirDatos =() => {
     return new Promise ((resolve, reject) => {
       setTimeout (()=> {
         resolve(MOCK_DATA)
-      }, 3000)
+      }, 2000)
     })
   }
+  import  mock_data  from "../mock_data/data.json"
+
