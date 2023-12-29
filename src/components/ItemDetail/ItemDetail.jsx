@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import QuantitySelector from "./QuantitySelector";
 import { CartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -42,8 +42,8 @@ const ItemDetail = ({ item }) => {
                         {
                             isInCart(item.id)
                                 ? <button className="mt-4 flex justify-center text-white rounded font-mono hover:bg-slate-600 py-3 px-6 bg-slate-500">
-                                    Terminar mi compra
-                                </button>
+                                <Link to={"/cart"}>Terminar la compra</Link>
+                                </button>
                                 : <>
                                     <QuantitySelector
                                         cantidad={cantidad}
@@ -59,7 +59,6 @@ const ItemDetail = ({ item }) => {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

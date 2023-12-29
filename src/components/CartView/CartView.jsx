@@ -1,7 +1,8 @@
 import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
-import trashIcon from "../../assets/trashIcon.svg"
-import { UserContext } from "../../Context/userContext"
+import trashIcon from "../../assets/CartIcon.svg"
+import { UserContext } from "../../Context/UserContext"
+
 
 
 
@@ -40,7 +41,7 @@ export const CartView = () => {
             </ul>
             <hr />
             <h4 className="font-mono text-4xl">TOTAL: ${totalCart()}</h4>
-            <button className="" texto="Vaciar Carrito" onClick={clearCart}>Vaciar Carrito</button>
+            <button className="p-6 col-span-1 px-2 bg-red-700  font-semibold  text-[18px] flex justify-center items-center hover:bg-gray-200 h-5" texto="Vaciar Carrito" onClick={clearCart}>Vaciar Carrito</button>
         </section>
 
     )

@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom"
 
 
 
-
-
 export const BotonAtras = () => {
 
     const navigate = useNavigate()
@@ -13,8 +11,8 @@ export const BotonAtras = () => {
     }
     return (
 
-        <button onClick={handleAtras} className="bg-yellow-200 font-mono text-black mt-10 shadow-black px-3 py-1 m-4 rounded">
-            Atras...
+        <button onClick={handleAtras} className="flex justify-center text-white rounded font-mono hover:bg-slate-600 py-3 px-6 bg-slate-500">
+            Atras
         </button>
     )
 }

@@ -5,9 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/img/hero-pattern.svg')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    '@tailwindcss/typography',
+    '@tailwindcss/aspect-ratio'
   ],
-}
+  }}

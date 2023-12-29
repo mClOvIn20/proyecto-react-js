@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import { pedirDatos } from "../../utils/utils"
+import { pedirDatos } from "../../utilidades/utilidades.js"
 import { useParams } from "react-router-dom"
 import  ItemDetail from "../itemDetail/ItemDetail"
-import { Loader } from "../Loader/Loader"
+
 
 
 
@@ -27,7 +27,7 @@ export const ItemDetailConteiner = () => {
         <>
             {
                 loading
-                    ? (<Loader />)
+                    ? ("")
                     : (<ItemDetail item={item} />
             )}
         </>
