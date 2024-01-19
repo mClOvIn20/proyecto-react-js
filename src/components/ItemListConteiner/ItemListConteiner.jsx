@@ -3,9 +3,9 @@ import './ItemListConteiner.css'
 import Item from '../Item/Item'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { pedirDatos } from '../../utilidades/utilidades.js'
-
-
+import Loader from '../Loader/Loader.jsx'
+import {collection, getDocs, query, where} from "firebase/firestore"
+import {db} from "../../firebase/config"
 
 
 export const ItemListConteiner = () => {
@@ -19,15 +19,24 @@ export const ItemListConteiner = () => {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
-            .then((data) => {
-                const items = categoryId
-                    ? data.filter(prod => prod.category === categoryId)
-                    : data
-                setProductos(items)
 
+        const productosRef = collection(db, "productos")
+        const docsRef = categoryId
+        ? query (productosRef, where("category", "==", categoryId))
+        : productosRef
+
+
+        getDocs( docsRef )
+        .then ((querySnapshot) => {
+            const docs = querySnapshot.docs.map(doc => {
+                return{
+                    ...doc.data(),
+                    id: doc.id
+                }
             })
-            .finally(() => setLoading(false));
+            setProductos (docs)
+        })
+        .finally (()=> setLoading(false))
 
     }, [categoryId])
 
@@ -40,9 +49,7 @@ export const ItemListConteiner = () => {
                 <h3 className='text-2xl font-bold tracking-tight text-gray-900'>Menu god</h3>
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"></div>
                         
-                        {
-                        loading
-                            ? ("") : (<Item productos={productos} />
+                        {loading ? (<Loader/>) : (<Item productos={productos} />
                             )}
                 </div>
             

@@ -11,10 +11,10 @@ import { ItemDetailConteiner } from './components/ItemDetailConteiner/ItemDetail
 import { CartProvider } from './Context/CartContext'
 import { CartView } from './components/CartView/CartView'
 import { UserProvider } from './Context/UserContext'
+import Checkout from './components/Checkout/Checkout'
 
 
 function App() {
-
 
   return (
 
@@ -30,6 +30,8 @@ function App() {
               <Route path="/menu/:categoryId" element={<ItemListConteiner />} />
               <Route path="/item/:itemId" element={<ItemDetailConteiner />} />
               <Route path="/cart" element={<CartView />} />
+              <Route path="/checkout" element={<Checkout />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

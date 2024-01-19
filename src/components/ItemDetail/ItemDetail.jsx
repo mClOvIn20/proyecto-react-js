@@ -37,13 +37,13 @@ const ItemDetail = ({ item }) => {
                 <div className="flex w-60 h-60 py-5 px-5 gap-6">
                     <img src={item.img} alt={item.name} />
                     <div className="w-screen">
-                        <p className="w-screen py-5 px-5 font-extrabold">{item.description} </p>
+                        <p className="w-screen py-5 px-5 font-bold">{item.description} </p>
                         <p className="text-xl font-bold px-5 pt-2 mb-5"> Precio: ${item.price}</p>
                         {
                             isInCart(item.id)
                                 ? <button className="mt-4 flex justify-center text-white rounded font-mono hover:bg-slate-600 py-3 px-6 bg-slate-500">
                                 <Link to={"/cart"}>Terminar la compra</Link>
-                                </button>
+                                </button>
                                 : <>
                                     <QuantitySelector
                                         cantidad={cantidad}
