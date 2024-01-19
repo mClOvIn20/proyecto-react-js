@@ -15,7 +15,6 @@ ReactJs
 
 ​Es un carrito de compras que ofrece:
 
-Login de usuarios condicionando al administrador/Dueño
 navegacion por categorias
 añadir items al carrito
 eliminar items del carrito
